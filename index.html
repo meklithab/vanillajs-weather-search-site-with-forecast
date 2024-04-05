@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="overall">
@@ -16,16 +17,23 @@
             required
             class="city"
           />
-          <input type="submit" value="Search" class="search" />
+          <input
+            type="submit"
+            value="Search"
+            class="search"
+            onclick="changeCity()"
+          />
         </form>
       </header>
 
       <main>
         <div class="current-weather">
           <div class="day-temp">
-            <h1>Paris</h1>
+            <h1 class="city-name">Paris</h1>
             <p>
-              Saturday 15:32, moderate rain <br />
+              <span class="day-of-week">Saturday</span>
+              <span class="hour-of-day">15</span>:
+              <span class="minute-of-hour">32</span>, moderate rain <br />
               Humidity: <strong>87%</strong>, Wind: <strong>7.2km/h</strong>
             </p>
           </div>
@@ -40,11 +48,21 @@
       <footer>
         <p>
           This project was coded by
-          <a href="#" target="_blank">Meklit Habtamu</a> and is
-          <a href="#" target="_blank"> on GitHub</a> and
+          <a href="https://github.com/meklithab" target="_blank"
+            >Meklit Habtamu</a
+          >
+          and is
+          <a
+            href="https://github.com/meklithab/vanilla-weather-search-week-7"
+            target="_blank"
+          >
+            on GitHub</a
+          >
+          and
           <a href="#" target="_blank">hosted on Netlify</a>
         </p>
       </footer>
     </div>
+    <script src="app.js"></script>
   </body>
 </html>
