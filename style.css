@@ -1,0 +1,87 @@
+   body {
+       background-color: #f9f7fe;
+   }
+
+   .overall {
+       max-width: 600px;
+       box-shadow: rgba(65, 50, 100, 0.08) 0px 30px 50px;
+       background: white;
+       margin: 60px auto;
+       padding: 25px 38px;
+       border-radius: 10px;
+   }
+
+   .city-search {
+       display: flex;
+       justify-content: start;
+       padding-bottom: 30px;
+       border-bottom: rgb(249, 248, 248) solid 1pt;
+   }
+
+   .city {
+       background-color: #f9f7fe;
+       border-radius: 6px;
+       border: none;
+       font-size: 16px;
+       margin-right: 10px;
+       width: 28.3em;
+       height: 3.75em;
+       padding: 20px 20px;
+   }
+
+   .search {
+       background-color: #885df1;
+       padding: 9px 24px;
+       border-radius: 6px;
+       border: none;
+       color: white;
+       font-size: 16px;
+   }
+
+   main {
+       border-bottom: rgb(249, 248, 248) solid 1pt;
+       font-family: Roboto, sans-serif;
+   }
+
+   main h1 {
+       font-size: 38px;
+       font-weight: 900;
+   }
+
+   main p {
+       font-size: 17.5px;
+       color: rgba(39, 33, 66, 0.4);
+   }
+
+   main strong {
+       color: red;
+   }
+
+   .current-weather {
+       display: flex;
+       justify-content: space-between;
+       margin: 20px 0px;
+   }
+
+   .icon {
+       font-size: 80px;
+       font-weight: bold;
+   }
+
+   .icon2 {
+       font-size: 45px;
+   }
+
+   .icon2-2 {
+       font-size: 40px;
+       position: relative;
+       top: -38px;
+   }
+
+   footer p {
+       text-align: center;
+       margin: 20px 5px;
+       font-size: 16px;
+       color: rgba(39, 33, 66, 0.4);
+       font-family: Roboto, sans-serif;
+   }
