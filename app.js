@@ -1,3 +1,31 @@
+
+
+let parisUrl = `https://api.shecodes.io/weather/v1/current?query=Paris&key=35af4obbb291a0548td82efb8ee6a91e&units=metric`;
+axios.get(parisUrl).then(callFirst);
+
+function callFirst(response) {
+    let parisIconUrl = response.data.condition.icon_url;
+    let parisIconElement = document.querySelector(".icon");
+    parisIconElement.setAttribute("src", parisIconUrl);
+
+    let parisTemp = document.querySelector(".current-temperature-value");
+    let parisHum = document.querySelector(".humidity-value");
+    let parisWin = document.querySelector(".wind-value")
+
+
+    parisTemp.innerHTML = `${Math.round(response.data.temperature.current)} <sup style="font-size:30px;">°C</sup>`
+    parisHum.innerHTML = response.data.temperature.humidity + "%";
+    parisWin.innerHTML = response.data.wind.speed + "km/h";
+
+    let parisDesc = document.querySelector(".condition-description");
+    parisDesc.innerHTML = response.data.condition.description;
+
+}
+
+
+
+
+
 function search(event) {
     event.preventDefault();
     let searchInputElement = document.querySelector("#search-input");
@@ -27,7 +55,7 @@ function changeTemprature(response) {
     let win = document.querySelector(".wind-value")
 
     if (response.data.temperature) {
-        temp.innerHTML = `${response.data.temperature.current} <sup style="font-size:30px;">°C</sup>`
+        temp.innerHTML = ` ${Math.round(response.data.temperature.current)} <sup style="font-size:30px;">°C</sup>`
 
         hum.innerHTML = response.data.temperature.humidity + "%";
         win.innerHTML = response.data.wind.speed + "km/h";
