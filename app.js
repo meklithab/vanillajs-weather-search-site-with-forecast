@@ -1,6 +1,8 @@
+
+let cityInput = document.querySelector(".city");
+
 function changeCity(event) {
     event.preventDefault();
-    let cityInput = document.querySelector(".city");
     let newCity = document.querySelector(".city-name");
     newCity.innerHTML = cityInput.value;
     changeTime()
@@ -24,8 +26,24 @@ function changeTime() {
     let m = document.querySelector(".minute-of-hour")
     m.innerHTML = minute;
 
+
+
 }
 
-let url = https://jsonplaceholder.typicode.com/users/1; 
+
+let cityValue = cityInput.value
+let url = "https://api.shecodes.io/weather/v1/current?query=cityValue&key=35af4obbb291a0548td82efb8ee6a91e"
+
+axios.get(url).then(changeWeather)
+
+
+function changeWeather() {
+    
+  
+}
+
+
+
+
 
 
