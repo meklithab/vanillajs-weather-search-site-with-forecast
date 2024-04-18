@@ -1,48 +1,94 @@
-
-let cityInput = document.querySelector(".city");
-
-function changeCity(event) {
+function search(event) {
     event.preventDefault();
-    let newCity = document.querySelector(".city-name");
-    newCity.innerHTML = cityInput.value;
-    changeTime()
-}
+    let searchInputElement = document.querySelector("#search-input");
+    let cityElement = document.querySelector("#current-city");
+    cityElement.innerHTML = searchInputElement.value;
 
-let c1 = document.querySelector("form");
-c1.addEventListener('submit', changeCity)
+    //Change Temprature
+    let city = searchInputElement.value;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=35af4obbb291a0548td82efb8ee6a91e&units=metric`;
+    axios.get(apiUrl).then(changeTemprature);
 
-let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    //Change Description
+    axios.get(apiUrl).then(changeDescription);
 
-let today = new Date();
-let date = days[today.getDay()];
-let hour = today.getHours();
-let minute = today.getMinutes();
-
-function changeTime() {
-    let d = document.querySelector(".day-of-week")
-    d.innerHTML = date;
-    let h = document.querySelector(".hour-of-day")
-    h.innerHTML = hour;
-    let m = document.querySelector(".minute-of-hour")
-    m.innerHTML = minute;
+    axios.get(apiUrl).then(changeIcon)
 
 
 
 }
 
+function changeTemprature(response) {
 
-let cityValue = cityInput.value
-let url = "https://api.shecodes.io/weather/v1/current?query=cityValue&key=35af4obbb291a0548td82efb8ee6a91e"
+    console.log(response.data);
 
-axios.get(url).then(changeWeather)
+    let temp = document.querySelector(".current-temperature-value");
+    let hum = document.querySelector(".humidity-value");
+    let win = document.querySelector(".wind-value")
+
+    if (response.data.temperature) {
+        temp.innerHTML = `${response.data.temperature.current} <sup style="font-size:30px;">°C</sup>`
+
+        hum.innerHTML = response.data.temperature.humidity + "%";
+        win.innerHTML = response.data.wind.speed + "km/h";
 
 
-function changeWeather() {
-    
-  
+    } else {
+        temp.innerHTML = "N/A";
+        hum.innerHTML = "N/A";
+        win.innerHTML = "N/A";
+
+    }
+
 }
 
+function formatDate(date) {
+    let minutes = date.getMinutes();
+    let hours = date.getHours();
+    let day = date.getDay();
 
+    if (minutes < 10) {
+        minutes = `0${minutes}`;
+    }
+
+    if (hours < 10) {
+        hours = `0${hours}`;
+    }
+
+    let days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+    ];
+
+    let formattedDay = days[day];
+    return `${formattedDay} ${hours}:${minutes}`;
+}
+
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", search);
+
+let currentDateELement = document.querySelector("#current-date");
+let currentDate = new Date();
+
+currentDateELement.innerHTML = formatDate(currentDate);
+
+
+
+function changeDescription(response) {
+    let desc = document.querySelector(".condition-description");
+    desc.innerHTML = response.data.condition.description;
+}
+
+function changeIcon(response) {
+    let iconUrl = response.data.condition.icon_url;
+    let iconElement = document.querySelector(".icon");
+    iconElement.setAttribute("src", iconUrl);
+}
 
 
 
