@@ -102,6 +102,31 @@ main {
     top: -10px;
 }
 
+.forcast-container
+{
+    margin:5px
+}
+.day-row
+{
+    color:grey;
+    margin-left: 5px;
+}
+.icon-row
+{
+    margin-left: 5px;
+
+}
+.min{
+    color:plum;
+    margin-left:5px;
+    font-weight: bold;
+}
+.max
+{
+    color:lightsalmon;
+    margin-left: 7px;
+
+}
 footer {
     border-top: 1px solid #f9f7fe;
     text-align: center;
