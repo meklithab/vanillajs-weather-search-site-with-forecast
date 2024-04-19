@@ -102,19 +102,35 @@ main {
     top: -10px;
 }
 
-.forcast-container
-{
-    margin:5px
+.forecast-container {
+    text-align: center;
+    display: flex;
+    margin: 20px;
+    /* Display forecast days side by side */
 }
+
+.forecast-day {
+
+    margin: 15px;
+
+}
+
 .day-row
 {
-    color:grey;
+    color:lightslategray;
+    font-size: 16px;
     margin-left: 5px;
 }
 .icon-row
 {
     margin-left: 5px;
 
+
+}
+.icon-row img
+{
+    width: 70px;
+    
 }
 .min{
     color:plum;
@@ -134,3 +150,6 @@ footer {
 
     color: rgba(39, 33, 66, 0.4);
 }
+
+
+
